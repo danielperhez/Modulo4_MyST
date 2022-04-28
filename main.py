@@ -9,3 +9,7 @@
 
 import functions
 import visualizations
+
+def crypto_exchanges(minutes):
+    avance_1,avance_2,rolls = function.cxt(minutes)
+    return avance_1,avance_2,rolls

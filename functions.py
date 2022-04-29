@@ -16,6 +16,7 @@ from sympy import limit
 import time
 import plotly.express as px
 import math
+import plotly.graph_objects as go
 
 def cxt(minutes):
 
@@ -497,4 +498,37 @@ def cxt(minutes):
     rolls_total["spread"] = list((spread_bitso_btc)[9:60]) + list(spread_bitso_eth[9:60]) + list(spread_bitso_ltc[9:60]) + list(spread_kraken_btc[9:60]) + list(spread_kraken_eth[9:60]) + list(spread_kraken_ltc[9:60]) + list(spread_binance_btc[9:60]) + list(spread_binance_eth[9:60]) + list(spread_binance_ltc[9:60])
     rolls_total["effective spread"] = rolls_juntos
     
-    return Exchanges,dataframe, rolls_total
+
+    data = pd.DataFrame()
+    data['timeframe'] = timeframe
+    data['bitso_bid_bit'] =  bid_bitso_btc[0:60]
+    data['bitso_ask_bit'] =  ask_bitso_btc[0:60]
+    data['bitso_spread_bit'] =  spread_bitso_btc[0:60]
+    data['bitso_bid_eth'] =  bid_bitso_eth[0:60]
+    data['bitso_ask_eth'] =  ask_bitso_eth[0:60]
+    data['bitso_spread_eth'] =  spread_bitso_eth[0:60]
+    data['bitso_bid_ltc'] =  bid_bitso_ltc[0:60]
+    data['bitso_ask_ltc'] =  ask_bitso_ltc[0:60]
+    data['bitso_spread_ltc'] =  spread_bitso_ltc[0:60]
+
+    data['kraken_bid_bit'] =  bid_kraken_btc[0:60]
+    data['kraken_ask_bit'] =  ask_kraken_btc[0:60]
+    data['kraken_spread_bit'] =  spread_kraken_btc[0:60]
+    data['kraken_bid_eth'] =  bid_kraken_eth[0:60]
+    data['kraken_ask_eth'] =  ask_kraken_eth[0:60]
+    data['kraken_spread_eth'] =  spread_kraken_eth[0:60]
+    data['kraken_bid_ltc'] =  bid_kraken_ltc[0:60]
+    data['kraken_ask_ltc'] =  ask_kraken_ltc[0:60]
+    data['kraken_spread_ltc'] =  spread_kraken_ltc[0:60]
+
+    data['binance_bid_bit'] =  bid_binance_btc[0:60]
+    data['binance_ask_bit'] =  ask_binance_btc[0:60]
+    data['binance_spread_bit'] =  spread_binance_btc[0:60]
+    data['binance_bid_eth'] =  bid_binance_eth[0:60]
+    data['binance_ask_eth'] =  ask_binance_eth[0:60]
+    data['binance_spread_eth'] =  spread_binance_eth[0:60]
+    data['binance_bid_ltc'] =  bid_binance_ltc[0:60]
+    data['binance_ask_ltc'] =  ask_binance_ltc[0:60]
+    data['binance_spread_ltc'] =  spread_binance_ltc[0:60]
+
+    return Exchanges,dataframe, rolls_total, data

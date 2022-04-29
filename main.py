@@ -11,8 +11,8 @@ import functions
 import visualizations
 
 def crypto_exchanges(minutes):
-    avance_1,avance_2,rolls = functions.cxt(minutes)
-    return avance_1,avance_2,rolls
+    avance_1,avance_2,rolls,data = functions.cxt(minutes)
+    return avance_1,avance_2,rolls,data
 
 def plot_bid_bit_1(data):
     a = visualizations.plot_bid_bit(data)
